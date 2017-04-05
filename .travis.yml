@@ -1,0 +1,5 @@
+language: go
+go:
+- 1.8.x
+go_import_path: aws.upspin.io
+script: go test -short -race ./...
