@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4903d8c5_9cd8ab06",
+        "filename": "cloud/storage/amazons3/amazons3_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5309
+      },
+      "writtenOn": "2017-05-02T19:39:32Z",
+      "side": 1,
+      "message": "In GCS Get and Download have different semantics, i.e., caching and consistency.  We don\u0027t really need to do this twice here since that distinction doesn\u0027t exist.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "804b4300fa7aa073b76420a51e55fe63a75f559f",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    }
+  ]
+}
