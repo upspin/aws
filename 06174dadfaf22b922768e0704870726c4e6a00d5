@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f9661a2_e90db350",
+        "filename": "cloud/storage/amazons3/amazons3.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-05-09T01:01:10Z",
+      "side": 1,
+      "message": "I think s3 is probably a cleaner name for the package. Most people know that s3 is an amazon thing, plus it\u0027s qualified by the repo name.",
+      "revId": "06174dadfaf22b922768e0704870726c4e6a00d5",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9462a9be_6bbd9f44",
+        "filename": "cloud/storage/amazons3/amazons3.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-05-09T01:01:10Z",
+      "side": 1,
+      "message": "put the second sentences in each of these comments on the next line",
+      "revId": "06174dadfaf22b922768e0704870726c4e6a00d5",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35a5380d_9c978ecb",
+        "filename": "cloud/storage/amazons3/amazons3.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-05-09T01:01:10Z",
+      "side": 1,
+      "message": "delete",
+      "revId": "06174dadfaf22b922768e0704870726c4e6a00d5",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9120d497_05fd7fbd",
+        "filename": "cloud/storage/amazons3/amazons3.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-05-09T01:01:10Z",
+      "side": 1,
+      "message": "Body: bytes.NewReader(contents)",
+      "revId": "06174dadfaf22b922768e0704870726c4e6a00d5",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f28b5cc9_e14bae54",
+        "filename": "cloud/storage/amazons3/amazons3.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-05-09T01:01:10Z",
+      "side": 1,
+      "message": "move these to the _test.go file",
+      "revId": "06174dadfaf22b922768e0704870726c4e6a00d5",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    }
+  ]
+}
