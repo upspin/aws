@@ -14,7 +14,10 @@ import (
 	"upspin.io/log"
 )
 
-const defaultTestBucketName = "upspin-test-scratch"
+const (
+	defaultTestBucketName = "upspin-test-scratch"
+	defaultTestRegion     = "us-east-1"
+)
 
 var (
 	client      storage.Storage
@@ -23,6 +26,7 @@ var (
 	fileName    = fmt.Sprintf("test-file-%d", time.Now().Second())
 
 	testBucket = flag.String("test_bucket", defaultTestBucketName, "bucket name to use for testing")
+	testRegion = flag.String("test_region", defaultTestRegion, "region to use for the test bucket")
 	useAWS     = flag.Bool("use_aws", false, "enable to run aws tests; requires aws credentials")
 )
 
@@ -75,6 +79,7 @@ test, ensure you are properly authorized to upload to an S3 bucket named by flag
 	// Create client that writes to test bucket.
 	var err error
 	client, err = storage.Dial("S3",
+		storage.WithKeyValue("s3Region", *testRegion),
 		storage.WithKeyValue("s3BucketName", *testBucket),
 		storage.WithKeyValue("defaultACL", ACLPublicRead))
 	if err != nil {
