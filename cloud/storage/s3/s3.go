@@ -33,6 +33,7 @@ const (
 
 // Keys used for storing dial options.
 const (
+	regionName = "s3Region"
 	bucketName = "s3BucketName"
 	defaultACL = "defaultACL"
 )
@@ -50,6 +51,10 @@ type s3Impl struct {
 func New(opts *storage.Opts) (storage.Storage, error) {
 	const op = "cloud/storage/amazons3.New"
 
+	region, ok := opts.Opts[regionName]
+	if !ok {
+		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q option is required", regionName))
+	}
 	bucket, ok := opts.Opts[bucketName]
 	if !ok {
 		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q option is required", bucketName))
@@ -64,6 +69,7 @@ func New(opts *storage.Opts) (storage.Storage, error) {
 	}
 
 	sess, err := session.NewSessionWithOptions(session.Options{
+		Config:            aws.Config{Region: aws.String(region)},
 		SharedConfigState: session.SharedConfigEnable,
 	})
 	if err != nil {
