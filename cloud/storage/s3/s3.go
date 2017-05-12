@@ -77,8 +77,9 @@ func New(opts *storage.Opts) (storage.Storage, error) {
 	}
 
 	return &s3Impl{
-		service:    s3.New(sess),
-		bucketName: bucket,
+		service:         s3.New(sess),
+		bucketName:      bucket,
+		defaultWriteACL: acl,
 	}, nil
 }
 
