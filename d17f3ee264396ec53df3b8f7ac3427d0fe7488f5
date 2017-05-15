@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c3087cd_0bd972c6",
+        "filename": "cmd/upspin-setupstorage-aws/setupstorage.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-05-15T00:58:38Z",
+      "side": 1,
+      "message": "move this string constant out as a global variable\n\nvar rolePolicyDocument \u003d aws.String(`\n{ \n...\n}\n`)",
+      "revId": "d17f3ee264396ec53df3b8f7ac3427d0fe7488f5",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    }
+  ]
+}
