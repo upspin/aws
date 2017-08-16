@@ -92,7 +92,7 @@ var _ storage.Storage = (*s3Impl)(nil)
 
 // LinkBase implements Storage.
 func (s *s3Impl) LinkBase() (base string, err error) {
-	return "https://s3.amazonaws.com/" + s.bucketName + "/", nil
+	return s.service.Endpoint + "/" + s.bucketName + "/", nil
 }
 
 // Download implements Storage.
