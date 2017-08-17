@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e46b5dd_4060788b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5389
+      },
+      "writtenOn": "2017-08-17T01:36:02Z",
+      "side": 1,
+      "message": "Please make this first line:\n\ncloud/storage/s3: use regional S3 endpoint in LinkBase",
+      "revId": "28c54dce2d9f987e8ec2f0e3b593713e565239f7",
+      "serverId": "0759ed4b-3fdc-34dc-866b-f2e708168c03",
+      "unresolved": true
+    }
+  ]
+}
