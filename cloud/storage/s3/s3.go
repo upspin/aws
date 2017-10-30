@@ -33,9 +33,10 @@ const (
 
 // Keys used for storing dial options.
 const (
-	regionName = "s3Region"
-	bucketName = "s3BucketName"
-	defaultACL = "defaultACL"
+	regionName  = "s3Region"
+	bucketName  = "s3BucketName"
+	defaultACL  = "defaultACL"
+	endpointURL = "endpoint"
 )
 
 // s3Impl is an implementation of Storage that connects to an Amazon Simple
@@ -55,6 +56,12 @@ func New(opts *storage.Opts) (storage.Storage, error) {
 	if !ok {
 		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q option is required", regionName))
 	}
+	config := aws.Config{
+		Region: aws.String(region),
+	}
+	if endpoint, ok := opts.Opts[endpointURL]; ok {
+		config.Endpoint = aws.String(endpoint)
+	}
 	bucket, ok := opts.Opts[bucketName]
 	if !ok {
 		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q option is required", bucketName))
@@ -69,7 +76,7 @@ func New(opts *storage.Opts) (storage.Storage, error) {
 	}
 
 	sess, err := session.NewSessionWithOptions(session.Options{
-		Config:            aws.Config{Region: aws.String(region)},
+		Config:            config,
 		SharedConfigState: session.SharedConfigEnable,
 	})
 	if err != nil {
