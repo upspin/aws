@@ -50,7 +50,7 @@ type s3Impl struct {
 // New initializes a Storage implementation that stores data to Amazon Simple
 // Storage Service.
 func New(opts *storage.Opts) (storage.Storage, error) {
-	const op = "cloud/storage/amazons3.New"
+	const op errors.Op = "cloud/storage/amazons3.New"
 
 	region, ok := opts.Opts[regionName]
 	if !ok {
@@ -104,7 +104,7 @@ func (s *s3Impl) LinkBase() (base string, err error) {
 
 // Download implements Storage.
 func (s *s3Impl) Download(ref string) ([]byte, error) {
-	const op = "cloud/storage/amazons3.Download"
+	const op errors.Op = "cloud/storage/amazons3.Download"
 
 	buf := aws.NewWriteAtBuffer([]byte{})
 	d := s3manager.NewDownloaderWithClient(s.service)
@@ -124,7 +124,7 @@ func (s *s3Impl) Download(ref string) ([]byte, error) {
 
 // Put implements Storage.
 func (s *s3Impl) Put(ref string, contents []byte) error {
-	const op = "cloud/storage/amazons3.Put"
+	const op errors.Op = "cloud/storage/amazons3.Put"
 
 	ul := s3manager.NewUploaderWithClient(s.service)
 	_, err := ul.Upload(&s3manager.UploadInput{
@@ -142,7 +142,7 @@ func (s *s3Impl) Put(ref string, contents []byte) error {
 
 // Delete implements Storage.
 func (s *s3Impl) Delete(ref string) error {
-	const op = "cloud/storage/amazons3.Delete"
+	const op errors.Op = "cloud/storage/amazons3.Delete"
 
 	_, err := s.service.DeleteObject(&s3.DeleteObjectInput{
 		Bucket: aws.String(s.bucketName),
