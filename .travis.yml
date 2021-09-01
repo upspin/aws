@@ -1,8 +1,0 @@
-language: go
-go:
-- 1.9.x
-go_import_path: aws.upspin.io
-script: go test -short -race ./...
-notifications:
-  email:
-  - upspin-reviews@googlegroups.com
