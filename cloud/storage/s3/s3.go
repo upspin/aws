@@ -8,6 +8,7 @@ package s3 // import "aws.upspin.io/cloud/storage/s3"
 
 import (
 	"bytes"
+	"strings"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -37,6 +38,7 @@ const (
 	bucketName  = "s3BucketName"
 	defaultACL  = "defaultACL"
 	endpointURL = "endpoint"
+	pathstyle   = "pathstyle"
 )
 
 // s3Impl is an implementation of Storage that connects to an Amazon Simple
@@ -69,6 +71,17 @@ func New(opts *storage.Opts) (storage.Storage, error) {
 	acl, ok := opts.Opts[defaultACL]
 	if !ok {
 		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q option is required", defaultACL))
+	}
+	shouldPathstyle, ok := opts.Opts[pathstyle]
+	if !ok {
+		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q option is required", pathstyle))
+	}
+	if strings.TrimSpace(shouldPathstyle) == "true" {
+		config.S3ForcePathStyle = aws.Bool(true)
+	} else if strings.TrimSpace(shouldPathstyle) == "false" {
+		config.S3ForcePathStyle = aws.Bool(false)
+	} else {
+		return nil, errors.E(op, errors.Invalid, errors.Errorf("%q must be true or false", pathstyle))
 	}
 	if acl != ACLPrivate && acl != ACLPublicRead {
 		return nil, errors.E(op, errors.Invalid,
